@@ -11,6 +11,7 @@ export interface ToolbarButtonData {
   buttonContent: React.ReactNode;
   buttonProps: any;
   buttonComponentClass: React.ComponentClass | string;
+  customButtonComponent: React.ReactNode;
 }
 
 export interface ToolbarProps {
@@ -86,6 +87,7 @@ export class Toolbar extends React.Component<ToolbarProps> {
                   onClick={() => onCommand(c.commandName)}
                   readOnly={readOnly}
                   buttonComponentClass={c.buttonComponentClass}
+                  customButtonComponent={c.customButtonComponent}
                 />
               );
             })}

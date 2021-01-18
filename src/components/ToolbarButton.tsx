@@ -7,6 +7,7 @@ export interface ToolbarButtonProps {
   buttonContent: React.ReactNode;
   onClick: React.MouseEventHandler<any>;
   readOnly: boolean;
+  customButtonComponent: React.ReactNode;
 }
 
 const defaultButtonProps = {
@@ -20,10 +21,16 @@ export const ToolbarButton: React.FunctionComponent<ToolbarButtonProps> = props 
     buttonProps,
     onClick,
     readOnly,
-    name
+    name,
+    customButtonComponent
   } = props;
   const finalButtonProps = { ...defaultButtonProps, ...(buttonProps || {}) };
   const finalButtonComponent = buttonComponentClass || "button";
+
+  if (!!customButtonComponent) {
+    return <li className="mde-header-item">{customButtonComponent}</li>;
+  }
+
   return (
     <li className="mde-header-item">
       {React.createElement(

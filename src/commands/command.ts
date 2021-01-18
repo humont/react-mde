@@ -22,6 +22,10 @@ export interface Command {
    * "HandleKeyCommand" for subsequent commands will not be executed after the first one returns true.
    */
   handleKeyCommand?: HandleKeyCommand;
+  /**
+   * Pass a custom component for the button to modify the default behaviour.
+   */
+  customButtonComponent?: React.ReactNode;
 }
 
 export interface CommandContext {
